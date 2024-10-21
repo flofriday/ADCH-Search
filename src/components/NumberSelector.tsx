@@ -1,7 +1,7 @@
 import { Button } from "./ui/button"
 import { useState } from "react"
 import { cn } from "@/lib/utils"
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "./ui/command"
+import { Command, CommandGroup, CommandItem, CommandList } from "./ui/command"
 import { Check, ChevronsUpDown } from "lucide-react"
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover"
 
@@ -10,28 +10,6 @@ interface props {
     available: number[],
     onChange: (value: number) => void,
 }
-const frameworks = [
-    {
-        value: "next.js",
-        label: "Next.js",
-    },
-    {
-        value: "sveltekit",
-        label: "SvelteKit",
-    },
-    {
-        value: "nuxt.js",
-        label: "Nuxt.js",
-    },
-    {
-        value: "remix",
-        label: "Remix",
-    },
-    {
-        value: "astro",
-        label: "Astro",
-    },
-]
 
 export function NumberSelector({ current, available, onChange }: props) {
 
@@ -78,6 +56,4 @@ export function NumberSelector({ current, available, onChange }: props) {
             </PopoverContent>
         </Popover>
     )
-
-
 }

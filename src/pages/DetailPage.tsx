@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { ToolDetails } from '@/models/ToolDetail';
-import { Globe, MoveLeft } from 'lucide-react';
+import { MoveLeft } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
@@ -29,14 +29,14 @@ const DetailView = () => {
                 id: data.persistentId,
                 label: data.label,
                 status: data.status,
-                keywords: data.properties.map(p => p.value ? p.value : p.concept.label).filter(k => k),
+                keywords: data.properties.map((p: any) => p.value ? p.value : p.concept.label).filter((k: any) => k),
                 description: data.description,
                 accessibleAt: data.accessibleAt,
-                contributors: data.contributors.map(c => c.actor.name),
-                imageUrls: data.media.map(m => m.info.location?.sourceUrl).filter(m => m != null),
+                contributors: data.contributors.map((c: any) => c.actor.name),
+                imageUrls: data.media.map((m: any) => m.info.location?.sourceUrl).filter((m: any) => m != null),
                 related: data.relatedItems
-                    .filter(other => other.category == "tool-or-service")
-                    .map(other => {
+                    .filter((other: any) => other.category == "tool-or-service")
+                    .map((other: any) => {
                         return {
                             id: other.persistentId,
                             label: other.label,

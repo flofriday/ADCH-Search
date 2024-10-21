@@ -1,13 +1,11 @@
 // SearchPage.js
 import { Input } from '@/components/ui/input';
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import universeImg from '@/assets/universe.png';
 import { ToolOverview } from '@/models/ToolOverview';
-import { Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from '@/components/ui/pagination';
 import SearchResultCard from '@/components/SearchResultCard';
 import { NumberSelector } from '@/components/NumberSelector';
 import { CustomPagination } from '@/components/CustomPagination';
+import { useEffect, useState } from 'react';
 
 const SearchPage = () => {
 
@@ -80,7 +78,7 @@ const SearchPage = () => {
                     label: item.label,
                     description: item.description,
                     accessibleAt: item.accessibleAt,
-                    contributors: item.contributors.map(c => c.actor.name),
+                    contributors: item.contributors.map((c: any) => c.actor.name),
                 }
             })); // Assuming 'data' contains the fetched results
         } catch (error) {
@@ -107,7 +105,12 @@ const SearchPage = () => {
                     <div className='w-full text-start mt-18'>
                         <div className='flex justify-between'>
                             <h2 className='scroll-m-20 text-2xl font-extrabold tracking-tight lg:text-3xl mb-4'>Results({totalResults}):</h2>
-                            <NumberSelector current={perPage} available={[10, 20, 30, 50]} onChange={(newPerPage) => { setPage(1); setPerPage(newPerPage) }} />
+                            <div>
+                                <NumberSelector current={perPage} available={[10, 20, 30, 50]} onChange={(newPerPage) => { setPage(1); setPerPage(newPerPage) }} />
+                                <span className='ml-2'>
+                                    per Page
+                                </span>
+                            </div>
                         </div>
                         {totalResults == 0 && <p className='text-muted-foreground text-center'>No results? Maybe try a different query?</p>}
                         {results.map(item => (

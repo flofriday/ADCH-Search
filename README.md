@@ -1,5 +1,9 @@
 # ADCH-Search
 
+![screenshot](screenshot.png)
+
+A react app to search and discover tools.
+
 ## Run it yourself
 
 To run it locally you need node and npm. 
@@ -15,5 +19,6 @@ npm run dev
 
 ```
 npm run build
-npm run start
 ```
+
+This will generate a build in the `dist` folder.

@@ -3,5 +3,5 @@ export interface ToolOverview {
   label: string;
   description: string;
   accessibleAt: string;
-  contributors: [string];
+  contributors: string[];
 }
